@@ -93,9 +93,6 @@ class Authentication {
 			() => {
 				// Save input value to variable
 				this._password = this._passwordInputEl.value;
-				if (this._password.length < 1) {
-					return;
-				}				
 				// Validation
 				lightdm.respond(String(this._password));
 			}
@@ -112,11 +109,7 @@ class Authentication {
 			// Save input value to variable
 			this._password = this._passwordInputEl.value;
 
-			if (e.key === 'Enter') {
-				if (this._password.length < 1) {
-					return;
-				}
-				
+			if (e.key === 'Enter') {				
 				// Validate
 				lightdm.respond(String(this._password));
 			}

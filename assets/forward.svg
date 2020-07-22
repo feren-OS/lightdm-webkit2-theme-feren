@@ -50,7 +50,7 @@
      bordercolor="#666666"
      pagecolor="#ffffff" />
   <path
-     style="fill:#ffffff;fill-opacity:1;stroke-width:6.25"
+     style="fill:#000000;fill-opacity:1;stroke-width:6.25"
      id="path2"
      d="M 120,20 102.3125,37.6875 172.125,107.5 H 20 v 25 H 172.125 L 102.3125,202.3125 120,220 220,120 Z" />
 </svg>

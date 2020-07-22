@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 class PowerScreen {
 	constructor() {
 		this._powerObject = [];
@@ -48,18 +52,22 @@ class PowerScreen {
 
 	// Show session screen
 	showPowerScreen() {
+        this._powerScreen.style.display = "block";
+        sleep(5).then(() => {
 		this._powerScreen.classList.add('powerScreenShow');
-        $("#powerScreen").fadeIn(220);
 		this._powerScreenVisible = true;
-        $("#topbackAScreenButton").fadeIn(220);
+        $("#topbackAScreenButton").fadeIn(200);
+        });
 	}
 
 	// Hide session screen
 	hidePowerScreen() {
+        $("#topbackAScreenButton").fadeOut(100);
 		this._powerScreen.classList.remove('powerScreenShow');
-        $("#powerScreen").fadeOut(220);
+        sleep(410).then(() => {
 		this._powerScreenVisible = false;
-        $("#topbackAScreenButton").fadeOut(220);
+        this._powerScreen.style.display = "none";
+        });
 	}
 
 	// Toggle session screen

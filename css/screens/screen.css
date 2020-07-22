@@ -29,5 +29,5 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	filter: blur(var(--blur-strength));
+	/*filter: blur(var(--blur-strength));*/
 }

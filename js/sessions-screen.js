@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 class SessionsScreen {
 	constructor() {
 		this._localStorage = window.localStorage;
@@ -46,16 +50,20 @@ class SessionsScreen {
 
 	// Show session screen
 	showSessionsScreen() {
+        this._sessionsScreen.style.display = "block";
+        sleep(5).then(() => {
 		this._sessionsScreen.classList.add('sessionsScreenShow');
-        $("#sessionsScreen").fadeIn(220);
 		this._sessionScreenVisible = true;
+        });
 	}
 
 	// Hide session screen
 	hideSessionsScreen() {
 		this._sessionsScreen.classList.remove('sessionsScreenShow');
-        $("#sessionsScreen").fadeOut(220);
+        sleep(410).then(() => {
 		this._sessionScreenVisible = false;
+        this._sessionsScreen.style.display = "none";
+        });
 	}
 
 	// Toggle session screen
@@ -96,7 +104,7 @@ class SessionsScreen {
 		// Update this session button image
 		this._sessionsButtonImage.src = `assets/sessions/${key}.png`;
 		this._sessionsButtonImage.onerror = () => {
-			this._sessionsButtonImage.src = 'assets/sessions/session-default.png';
+			this._sessionsButtonImage.src = 'assets/sessions/unknown.png';
 		};
 	}
 
@@ -156,7 +164,7 @@ class SessionsScreen {
 				`
 				<div id='sessionItemIconContainer'>
 					<img id='sessionItemIcon' draggable='false' src='assets/sessions/${sessionKey}.png' 
-					onerror='this.src="assets/sessions/session-default.png"'></img>
+					onerror='this.src="assets/sessions/unknown.png"'></img>
 				</div>
 				<div id='sessionItemName'>${sessionName}</div>
 				`

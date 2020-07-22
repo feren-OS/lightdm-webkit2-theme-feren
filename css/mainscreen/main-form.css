@@ -77,7 +77,7 @@
 
 #mainFormContent {
 	position: relative;
-	display: flex;
+	display: none;
 	flex-flow: row wrap;
 	pointer-events: none;
 }
@@ -97,31 +97,24 @@ label#userName {
 }
 
 #passwordInputBox {
-	background: var(--base-bg);
-	border-radius: var(--rounded-radius);
+	background: #FFFFFF;
+	border-radius: var(--rounded-radius) 0 0 var(--rounded-radius);
 	height: 36px;
 	display: inline-flex;
-	margin: 0 5px;
+	margin: 0 0 0 5px;
 }
 
 #passwordInput {
-	width: 180px;
+	width: 200px;
 	height: 36px;
 	padding: 0 10px;
 	text-align: left;
 	background: transparent;
-	color: var(--base-color);
-	font-weight: 700;
+	color: #000000;
 }
 
 .authenticationFailed {
-	border: 2px solid;
-	border-color: var(--base-error-bg);
-}
-
-.authenticationSuccess {
-	border: 2px solid;
-	border-color: var(--base-success-bg);
+	color: var(--base-error-bg);
 }
 
 .mainFormButton {
@@ -135,6 +128,7 @@ label#userName {
 
 .mainFormButton#authenticateButton {
 	background: var(--base-bg);
+    border-radius: 0 var(--rounded-radius) var(--rounded-radius) 0;
 }
 
 .mainFormButton#greeterScreenButton {
@@ -157,19 +151,38 @@ label#userName {
 
 #greeterScreenButton #greeterScreenButtonImage.mainFormButtonImage {
 	background-image: url('../../assets/back.svg');
+    
 }
 
-button.mainFormButton#authenticateButton:hover,
+button.mainFormButton#greeterScreenButton {
+	background: transparent;
+}
+
 button.mainFormButton#greeterScreenButton:hover {
 	background: var(--base-hover-bg);
 }
 
-button.mainFormButton#authenticateButton:focus,
 button.mainFormButton#greeterScreenButton:focus {
 	background: var(--base-focus-bg);
 }
 
-button.mainFormButton#authenticateButton:active,
 button.mainFormButton#greeterScreenButton:active {
 	background: var(--base-active-bg);
+}
+
+
+button.mainFormButton#authenticateButton {
+	background: #FFFFFFFF;
+}
+
+button.mainFormButton#authenticateButton:hover {
+	background: #E5E5E5FF;
+}
+
+button.mainFormButton#authenticateButton:focus {
+	background: #E5E5E5FF;
+}
+
+button.mainFormButton#authenticateButton:active {
+	background: #CBCBCBFF;
 }

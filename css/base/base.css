@@ -18,10 +18,8 @@
 
 /* Placeholder */
 ::placeholder {
-	font-family: Muli-Bold, sans-serif;
-	font-weight: 700;
-	color: var(--base-color);
-	opacity: 0.75;
+	color: #000000FF;
+	opacity: 0.45;
 }
 
 * {
@@ -50,7 +48,7 @@ body {
 
 html,
 body {
-	font-family: Muli, sans-serif;
+	font-family: Lato, sans-serif;
 	height: 100%;
 	position: fixed;
 }
@@ -61,7 +59,7 @@ input {
 	background: transparent;
 	color: var(--base-color);
 	border: none;
-	font-family: Muli, sans-serif;
+	font-family: Lato, sans-serif;
 	text-align: center;
 	outline: none;
 	padding: 5px;

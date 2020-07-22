@@ -14,11 +14,12 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+    display: none;
 }
 
 .sessionsButton {
-	width: 48px;
-	height: 48px;
+	width: 36px;
+	height: 36px;
 	cursor: pointer;
 }
 
@@ -38,8 +39,8 @@
 }
 
 .sessionsButtonImage {
-	width: 48px;
-	height: 48px;
+	width: 36px;
+	height: 36px;
 	border-radius: var(--rounded-radius);
 	object-fit: contain;
 	display: block;

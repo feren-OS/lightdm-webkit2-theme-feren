@@ -3,13 +3,13 @@
 	left: 0;
 	padding: 10px;
     display: none;
-    /*opacity: 0;*/
+    opacity: 0;
 }
 
-/*#powerScreen.powerScreenShow {
+#powerScreen.powerScreenShow {
     display: block;
 	opacity: 1;
-}*/
+}
 
 #powerScreenBackground.screenBackground {
 	background-image:

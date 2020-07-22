@@ -1,3 +1,7 @@
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 class UsersScreen {
 	constructor() {
 		this._localStorage = window.localStorage;
@@ -19,11 +23,13 @@ class UsersScreen {
 		this._defaultUserItem = null;
 
 		this._init();
-        //Skips multiple users screen if there's only one user
-        if (this._usersObject.length != 1) {
+        //Skip multiple users screen if there's only one user
+        if (this._usersObject.length > 1) {
             this.toggleUsersScreen();
         } else {
-            this._switchUsersButton.style.display = "none"
+            this._switchUsersButton.style.display = "none";
+            document.querySelector('#mainFormContent').style.display = "flex";
+            document.querySelector('#sessionsScreenButton').style.display = "block";
         }
 	}
 
@@ -60,16 +66,22 @@ class UsersScreen {
 
 	// Show session screen
 	showUsersScreen() {
+        this._usersScreen.style.display = "block";
+        sleep(5).then(() => {
 		this._usersScreen.classList.add('usersScreenShow');
-        $("#usersScreen").fadeIn(220);
 		this._userScreenVisible = true;
+        });
 	}
 
 	// Hide users screen
 	hideUsersScreen() {
+        document.querySelector('#mainFormContent').style.display = "flex";
+        document.querySelector('#sessionsScreenButton').style.display = "block";
 		this._usersScreen.classList.remove('usersScreenShow');
-        $("#usersScreen").fadeOut(220);
+        sleep(410).then(() => {
 		this._userScreenVisible = false;
+        this._usersScreen.style.display = "none";
+        });
 	}
 
 	// Toggle users screen
@@ -144,6 +156,9 @@ class UsersScreen {
 
 				// Hide user screen
 				this.hideUsersScreen();
+                
+                // Give passwordInput focus
+                this._passwordInputEl.focus();
 			}
 		);
 	}
