@@ -21,8 +21,5 @@ const powerScreen = new PowerScreen();
 // Instantiate key events
 const keyEvents = new KeyEvents();
 
-// Instantiate swipe events and callbacks
-//const swipeEventCallback = new SwipeEventCallback();
-
 // Instantiate authentication
 const authentication = new Authentication();
