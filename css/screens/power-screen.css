@@ -39,7 +39,7 @@
 	height: 150px;
 	padding: 10px;
 	margin-bottom: 10px;
-	cursor: pointer;
+	 cursor: normal;
 }
 
 .powerItemContent {

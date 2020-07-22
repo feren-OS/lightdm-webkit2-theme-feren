@@ -64,6 +64,9 @@ class SessionsScreen {
 		this._sessionScreenVisible = false;
         this._sessionsScreen.style.display = "none";
         });
+        
+        // Give passwordInput focus
+        document.querySelector('#passwordInput').focus();
 	}
 
 	// Toggle session screen

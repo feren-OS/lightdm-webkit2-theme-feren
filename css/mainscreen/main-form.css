@@ -122,7 +122,7 @@ label#userName {
 	height: 36px;
 	padding: 10px;
 	display: block;
-	cursor: pointer;
+	cursor: normal;
 	border-radius: var(--rounded-radius);
 }
 
