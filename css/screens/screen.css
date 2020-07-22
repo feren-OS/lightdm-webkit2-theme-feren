@@ -4,7 +4,6 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	#background-color: var(--base-body-bg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -30,4 +29,18 @@
 	background-position: center;
 	background-attachment: fixed;
 	/*filter: blur(var(--blur-strength));*/
+}
+
+.screenBackgroundOverlay {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	/*filter: blur(var(--blur-strength));*/
+	background-color: rgba(0, 0, 0, 0.2);
 }

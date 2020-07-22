@@ -12,12 +12,7 @@
 }
 
 #usersScreenBackground.screenBackground {
-	background-image:
-					linear-gradient(
-						rgba(0, 0, 0, 0.2),
-						rgba(0, 0, 0, 0.2)
-					),
-					url('../../assets/background');
+	/*background-image: url('../../assets/background');*/
 	/*filter: blur();*/
 }
 

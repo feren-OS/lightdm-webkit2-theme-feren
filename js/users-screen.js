@@ -68,20 +68,22 @@ class UsersScreen {
 
 	// Show session screen
 	showUsersScreen() {
-        this._usersScreen.style.display = "block";
-        sleep(5).then(() => {
 		this._usersScreen.classList.add('usersScreenShow');
 		this._userScreenVisible = true;
-        });
+        // Reveal main screen items
+        document.querySelector('#mainFormContent').style.display = "none";
+        document.querySelector('#sessionsScreenButton').style.display = "none";
 	}
 
 	// Hide users screen
 	hideUsersScreen() {
 		this._usersScreen.classList.remove('usersScreenShow');
-        sleep(410).then(() => {
 		this._userScreenVisible = false;
-        this._usersScreen.style.display = "none";
-        });
+        // Reveal main screen items
+        document.querySelector('#mainFormContent').style.display = "flex";
+        if (lightdm.sessions.length > 1) {
+            document.querySelector('#sessionsScreenButton').style.display = "block";
+        }
 	}
 
 	// Toggle users screen

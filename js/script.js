@@ -1,5 +1,7 @@
 // Instantiation
 
+const customSettings = new Settings();
+
 // Instantiate debug mode
 const debugMode = new DebugMode();
 

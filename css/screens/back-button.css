@@ -6,7 +6,7 @@
 	right: 0;
 	margin: 22.5px;
 	padding: 5px;
-	z-index: 20;
+	z-index: 41;
 	border-radius: 50%;
 	transition: opacity var(--transition-speed);
 	-webkit-touch-callout: none;

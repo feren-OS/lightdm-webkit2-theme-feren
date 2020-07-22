@@ -1,5 +1,5 @@
 #sessionsScreen.screen {
-	z-index: 5;
+	z-index: 11;
 	left: 0;
 	padding: 10px;
     display: none;
@@ -34,7 +34,7 @@
 	border: none;
 	border-radius: var(--rounded-radius);
 	outline: none;
-	width: 325px;
+	width: calc(100% - 8px);
 	height: 46px;
 	cursor: pointer;
     margin: 4px;
