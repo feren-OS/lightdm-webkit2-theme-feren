@@ -115,7 +115,7 @@ class PowerScreen {
 				'message': 'Hibernating...'
 			},
 			{
-				'name': 'Suspend',
+				'name': 'Sleep',
 				'icon': 'suspend',
 				'enabled': lightdm.can_suspend,
 				'powerCommand': lightdm.suspend,
@@ -129,13 +129,8 @@ class PowerScreen {
 
 
 	_executePowerCallback(callback) {
-		setTimeout(
-			() => {
-				this._enableWindowPropagation();
-				callback();
-			},
-			1500
-		);
+        this._enableWindowPropagation();
+        callback();
 	}
 
 	_powerItemOnClickEvent(item, powerObj) {
@@ -147,12 +142,11 @@ class PowerScreen {
 
 				// Disable keydown events temporarily
 				this._disableWindowPropagation();
-
-				// Show goodby screen
-				goodbyeScreen.showGoodbyeScreen(powerObj.icon, powerObj.message);
-
+                
+                $( 'body' ).fadeOut( 400, () => {
 				// Execute power command
 				this._executePowerCallback(powerObj.powerCommand);
+                });
 			}
 		);
 	}

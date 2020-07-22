@@ -4,9 +4,9 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	margin: 26px;
+	margin: 22.5px;
 	padding: 5px;
-	border-radius: var(--rounded-radius);
+    border-radius: 50%;
 	transition: opacity var(--transition-speed);
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -18,31 +18,31 @@
 }
 
 .sessionsButton {
-	width: 36px;
-	height: 36px;
+	width: 45px;
+	height: 45px;
 	cursor: pointer;
 }
 
 .sessionsButton:hover {
-	border-radius: var(--rounded-radius);
+	border-radius: 50%;
 	background-color: var(--base-hover-bg);
 }
 
 .sessionsButton:focus {
-	border-radius: var(--rounded-radius);
+	border-radius: 50%;
 	background-color: var(--base-focus-bg);
 }
 
 .sessionsButton:active {
-	border-radius: var(--rounded-radius);
+	border-radius: 50%;
 	background-color: var(--base-active-bg);
 }
 
 .sessionsButtonImage {
-	width: 36px;
-	height: 36px;
-	border-radius: var(--rounded-radius);
-	object-fit: contain;
-	display: block;
-	padding: 5px;
+	width: 100%;
+	height: 100%;
+	background-origin: content-box;
+	background-size: cover;
+	background-repeat: no-repeat;
+    padding: 10px;
 }

@@ -29,7 +29,9 @@ class UsersScreen {
         } else {
             this._switchUsersButton.style.display = "none";
             document.querySelector('#mainFormContent').style.display = "flex";
-            document.querySelector('#sessionsScreenButton').style.display = "block";
+            if (lightdm.sessions.length > 1) {
+                document.querySelector('#sessionsScreenButton').style.display = "block";
+            }
         }
 	}
 
@@ -75,8 +77,6 @@ class UsersScreen {
 
 	// Hide users screen
 	hideUsersScreen() {
-        document.querySelector('#mainFormContent').style.display = "flex";
-        document.querySelector('#sessionsScreenButton').style.display = "block";
 		this._usersScreen.classList.remove('usersScreenShow');
         sleep(410).then(() => {
 		this._userScreenVisible = false;
@@ -153,6 +153,12 @@ class UsersScreen {
 				// Update profile pic and label
 				this._setUserProfileImage(userProfile.profileImage, userProfile.profileImageFallBack);
 				this._setUserNameLabel(userProfile.displayName);
+                
+                // Reveal main screen items
+                document.querySelector('#mainFormContent').style.display = "flex";
+                if (lightdm.sessions.length > 1) {
+                    document.querySelector('#sessionsScreenButton').style.display = "block";
+                }
 
 				// Hide user screen
 				this.hideUsersScreen();

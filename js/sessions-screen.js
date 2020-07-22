@@ -165,8 +165,8 @@ class SessionsScreen {
 				<div id='sessionItemIconContainer'>
 					<img id='sessionItemIcon' draggable='false' src='assets/sessions/${sessionKey}.png' 
 					onerror='this.src="assets/sessions/unknown.png"'></img>
+					<span id='sessionItemName'>${sessionName}</span>
 				</div>
-				<div id='sessionItemName'>${sessionName}</div>
 				`
 			);
 			// Create on click event

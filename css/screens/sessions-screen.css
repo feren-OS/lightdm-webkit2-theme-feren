@@ -12,13 +12,7 @@
 }
 
 #sessionsScreenBackground.screenBackground {
-	background-image:
-					linear-gradient(
-						rgba(0, 0, 0, 0.5),
-						rgba(0, 0, 0, 0.5)
-					),
-					url('../../assets/bg.jpg');
-	filter: blur();
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 .sessionsList {
@@ -40,12 +34,10 @@
 	border: none;
 	border-radius: var(--rounded-radius);
 	outline: none;
-	margin: 5px;
-	width: 150px;
-	height: 150px;
-	padding: 10px;
-	margin-bottom: 10px;
+	width: 280px;
+	height: 46px;
 	cursor: pointer;
+    margin: 4px;
 }
 
 .sessionItemContent {
@@ -70,25 +62,26 @@
 }
 
 #sessionItemIconContainer {
-	margin-bottom: 5px;
+	margin: 5px;
 	position: relative;
 	display: flex;
-	flex-flow: column wrap;
-	align-items: center;
+	flex-flow: row wrap;
+	align-items: left;
 }
 
 img#sessionItemIcon {
-	width: 64px;
-	height: 64px;
-	object-fit: cover;
+	width: 26px;
+	height: 26px;
 	display: block;
+    vertical-align: middle;
 }
 
 #sessionItemName {
-	text-align: center;
+	text-align: left;
 	font-size: 11pt;
-	font-family: Muli-Light, sans-serif;
-	font-weight: 400;
+	font-family: Lato, sans-serif;
 	word-wrap: break-word;
 	color: var(--base-color);
+    margin: auto 10px;
+    max-height: 11pt;
 }

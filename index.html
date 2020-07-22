@@ -24,7 +24,7 @@
 						<img id='sessionItemIcon' src='assets/sessions/awesome.png'
 						onerror='this.src="assets/sessions/session-default.png"'></img>
 					</div>
-					<div id='sessionItemName'>awesome</div>
+					<label id='sessionItemName'>${sessionName}</label>
 				</button> -->
 			</div>
 		</div>
@@ -79,6 +79,8 @@
 			<img src='assets/back.svg' class='topbackButtonImage' draggable='false'></img>
 		</div>
 	</div>
+	
+	<img src='assets/watermark.png' id='watermark' draggable='false'></img>
 
 	<div class='mainForm'>
 		<div id='mainFormContent'>
@@ -107,17 +109,8 @@
 		</div>
 	</div>
 
-	<div id='goodbyeScreen' class='screen'>
-		<div id='goodbyeScreenBackground' class='screenBackground'></div>
-		<div id='goodbyeScreenContentContainer'>
-			<div id='goodbyeImage' class='goodbyeContent'></div>
-			<div id='goodbyeMessage' class='goodbyeContent'>Shutting down...</div>
-		</div>
-	</div>
-
 	<script type='text/javascript' src='js/debug-mode.js' defer></script>
 	<script type='text/javascript' src='js/greeter-screen-content.js' defer></script>
-	<script type='text/javascript' src='js/goodbye-screen.js' defer></script>
 	<script type='text/javascript' src='js/users-screen.js' defer></script>
 	<script type='text/javascript' src='js/sessions-screen.js' defer></script>
 	<script type='text/javascript' src='js/power-screen.js' defer></script>

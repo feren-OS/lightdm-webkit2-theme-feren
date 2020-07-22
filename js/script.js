@@ -12,9 +12,6 @@ const usersScreen = new UsersScreen();
 // Instantiate sessions screen
 const sessionsScreen = new SessionsScreen();
 
-// Instantiate goodbye screen
-const goodbyeScreen = new GoodbyeScreen();
-
 // Instantiate power screen
 const powerScreen = new PowerScreen();
 
