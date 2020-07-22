@@ -20,31 +20,41 @@
 	pointer-events: auto;
 }
 
+
+.userbox {
+    flex: 1;
+    display: flex;
+    margin: auto 0;
+}
+
+.userbox:first-child {
+    justify-content: flex-end;
+}
+
+.userbox:last-child {
+}
+
+
 /* Center profile container */
 #profilePictureContainer {
 	height: 148px;
 	width: 148px;
-	background: var(--base-bg);
-	border-radius: 50%;
 	pointer-events: initial;
-	margin: 0 auto;
+	margin: auto 20px;
 	position: relative;
-	flex-flow: column wrap;
-	display: flex;
 	justify-content: center;
-	align-items: center;
+    flex: 0;
 }
 
 /* Profile picture */
 #profilePicture {
-	height: 138px;
-	width: 138px;
+	height: 148px;
+	width: 148px;
 	border-radius: 50%;
 	object-fit: cover;
 	flex-flow: column wrap;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 /* Initialize animation */
@@ -68,9 +78,7 @@
 #mainFormContent {
 	position: relative;
 	display: flex;
-	flex-flow: column wrap;
-	justify-content: center;
-	align-items: center;
+	flex-flow: row wrap;
 	pointer-events: none;
 }
 
@@ -81,7 +89,6 @@
 label#userName {
 	color: var(--base-color);
 	font-size: 20px;
-	margin: 20px;
 	font-weight: 700;
 }
 
@@ -101,7 +108,7 @@ label#userName {
 	width: 180px;
 	height: 36px;
 	padding: 0 10px;
-	text-align: center;
+	text-align: left;
 	background: transparent;
 	color: var(--base-color);
 	font-weight: 700;

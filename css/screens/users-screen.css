@@ -1,15 +1,23 @@
 #usersScreen.screen {
 	z-index: 5;
-	top: -100vh;
 	left: 0;
 	padding: 10px;
+    display: none;
+    /*opacity: 0;*/
 }
 
-#usersScreen.usersScreenShow {
-	top: 0;
-}
+/*#usersScreen.usersScreenShow {
+    display: block;
+	opacity: 1;
+}*/
 
 #usersScreenBackground.screenBackground {
+	background-image:
+					linear-gradient(
+						rgba(0, 0, 0, 0.5),
+						rgba(0, 0, 0, 0.5)
+					),
+					url('../../assets/bg.jpg');
 	filter: blur();
 }
 
@@ -40,20 +48,9 @@
 	cursor: pointer;
 }
 
-.userItemDefault {
-	background: var(--base-selected-bg);
-}
-
-.userItem:hover {
-	background: var(--base-hover-bg);
-}
-
-.userItem:focus {
-	background: var(--base-focus-bg);
-}
-
-.userItem:active {
-	background: var(--base-active-bg);
+.userItemContent {
+	width: 100%;
+	height: 100%;
 }
 
 #userItemIconContainer {
@@ -65,8 +62,8 @@
 }
 
 img#userItemIcon {
-	width: 96px;
-	height: 96px;
+	width: 64px;
+	height: 64px;
 	border-radius: 50%;
 	object-fit: cover;
 	display: block;

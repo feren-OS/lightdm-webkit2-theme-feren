@@ -6,8 +6,12 @@ class PowerScreen {
 		this._powerList = document.querySelector('.powerList');
 		this._powerButtonPanel = document.querySelector('#powerButtonsPanel');
 		this._powerScreenButton = document.querySelector('#powerScreenButton');
+		this._backButton = document.querySelector('#topbackAScreenButton');
 
 		this._powerScreenVisible = false;
+        
+        $("#powerScreen").fadeOut(0);
+        $("#topbackAScreenButton").fadeOut(0);
 
 		this._init();
 	}
@@ -15,12 +19,22 @@ class PowerScreen {
 	_init() {
 		this._createPowerObject();
 		this._powerScreenButtonOnClickEvent();
+		this._backButtonOnClickEvent();
 	}
 
 	_powerScreenButtonOnClickEvent() {
 		this._powerScreenButton.addEventListener(
 			'click',
 			() => {
+				this.togglePowerScreen();
+			}
+		);
+	}
+	_backButtonOnClickEvent() {
+		this._backButton.addEventListener(
+			'click',
+				() => {
+				// Toggle back action
 				this.togglePowerScreen();
 			}
 		);
@@ -33,48 +47,27 @@ class PowerScreen {
 	}
 
 	// Show session screen
-	_showPowerScreen() {
-		// Settings Screen
-		if (settingsScreen.getSettingsScreenVisibility()) {
-			settingsScreen.toggleSettingsScreen();
-		}
-
-		// Sessions Screen
-		if (sessionsScreen.getSessionsScreenVisibility()) {
-			sessionsScreen.toggleSessionsScreen();
-		}
-
-		// Users Screen
-		if (usersScreen.getUsersScreenVisibility()) {
-			usersScreen.toggleUsersScreen();
-		}
-
-		// Goodbye Screen
-		if (goodbyeScreen.getGoodbyeScreenVisibility()) {
-			goodbyeScreen.hideGoodbyeScreen();
-		}
-
-		// Greeter Screen
-		if (greeterScreen.getGreeterScreenVisibility()) {
-			greeterScreen.toggleGreeterScreen();
-		}
-		
+	showPowerScreen() {
 		this._powerScreen.classList.add('powerScreenShow');
+        $("#powerScreen").fadeIn(220);
 		this._powerScreenVisible = true;
+        $("#topbackAScreenButton").fadeIn(220);
 	}
 
 	// Hide session screen
-	_hidePowerScreen() {
+	hidePowerScreen() {
 		this._powerScreen.classList.remove('powerScreenShow');
+        $("#powerScreen").fadeOut(220);
 		this._powerScreenVisible = false;
+        $("#topbackAScreenButton").fadeOut(220);
 	}
 
 	// Toggle session screen
 	togglePowerScreen() {
 		if (this._powerScreen.classList.contains('powerScreenShow')) {
-			this._hidePowerScreen();
+			this.hidePowerScreen();
 		} else {
-			this._showPowerScreen();
+			this.showPowerScreen();
 		}
 	}
 
@@ -142,7 +135,7 @@ class PowerScreen {
 			'click',
 			() => {
 				// Hide power screen
-				this._hidePowerScreen();
+				this.hidePowerScreen();
 
 				// Disable keydown events temporarily
 				this._disableWindowPropagation();

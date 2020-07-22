@@ -1,15 +1,23 @@
 #sessionsScreen.screen {
 	z-index: 5;
-	top: -100vh;
 	left: 0;
 	padding: 10px;
+    display: none;
+    /*opacity: 0;*/
 }
 
-#sessionsScreen.sessionsScreenShow {
-	top: 0;
-}
+/*#sessionsScreen.sessionsScreenShow {
+    display: block;
+	opacity: 1;
+}*/
 
 #sessionsScreenBackground.screenBackground {
+	background-image:
+					linear-gradient(
+						rgba(0, 0, 0, 0.5),
+						rgba(0, 0, 0, 0.5)
+					),
+					url('../../assets/bg.jpg');
 	filter: blur();
 }
 
@@ -29,7 +37,6 @@
 
 .sessionItem {
 	background: transparent;
-	
 	border: none;
 	border-radius: var(--rounded-radius);
 	outline: none;
@@ -41,8 +48,13 @@
 	cursor: pointer;
 }
 
+.sessionItemContent {
+	width: 100%;
+	height: 100%;
+}
+
 .sessionItemDefault {
-	background: var(--base-selected-bg);
+	background: var(--base-active-bg);
 }
 
 .sessionItem:hover {
@@ -66,8 +78,8 @@
 }
 
 img#sessionItemIcon {
-	width: 96px;
-	height: 96px;
+	width: 64px;
+	height: 64px;
 	object-fit: cover;
 	display: block;
 }

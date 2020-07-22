@@ -5,21 +5,7 @@ class DebugMode {
 	}
 
 	_debugModeProc() {
-		if (!window.config) {
-			window.config = {};
-			window.config.get_str = function() {
-				return '/usr/share/lightdm-webkit/themes/lightdm-webkit2-theme-glorious/assets/';
-			};
-		}
-
-		if (!window.greeterutil) {
-			window.greeterutil = {};
-			window.greeterutil.dirlist = function(path) {
-				return false;
-			};
-		}
-
-		if (!window.lightdm) {
+		if (typeof window.lightdm === 'undefined') {
 			window.lightdm = {
 				is_authenticated: false,
 				authentication_user: null,
@@ -64,9 +50,9 @@ class DebugMode {
 				],
 				users: [
 					{
-						display_name: 'Johnny Joestar',
+						display_name: 'Vaughn Valle',
 						username: 'tellhimyourself',
-						image: 'assets/profiles/johnnyj.jpg'
+						image: 'assets/profiles/bon.jpg'
 					},
 					{
 						display_name: 'Gyro Zepelli',

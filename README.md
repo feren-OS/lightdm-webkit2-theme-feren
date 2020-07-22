@@ -2,7 +2,7 @@
 
 [![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-lightdm-webkit2-theme/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-lightdm-webkit2-theme/pulls) [![HitCount](http://hits.dwyl.com/manilarome/the-glorious-lightdm-webkit2-theme.svg)](http://hits.dwyl.com/manilarome/the-glorious-lightdm-webkit2-theme) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0812167ef9954b74ac23f7c1bfeb3764)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=manilarome/the-glorious-lightdm-webkit2-theme&amp;utm_campaign=Badge_Grade)
 
-a modern, glorified lightdm webkit2 theme
+a modern, glorified lightdm webkit2 theme and pretty much work-in-progress
 
 ## [live demo here](https://manilarome.github.io/lightdm-webkit2-theme-glorious)
 
@@ -23,14 +23,6 @@ a modern, glorified lightdm webkit2 theme
 | power screen |
 | --- |
 | ![screenshot](scrots/power.webp) |
-
-| settings screen |
-| --- |
-| ![screenshot](scrots/settings.webp) |
-
-| settings background | settings theme | settings keybinds |
-| --- | --- | --- |
-| ![screenshot](scrots/settings-bg.webp) | ![screenshot](scrots/settings-theme.webp) | ![screenshot](scrots/settings-keybinds.webp) |
 
 
 ### dependencies
@@ -61,32 +53,31 @@ $ yay -S lightdm-webkit2-theme-glorious
 2. Copy the theme to the lightdm webkit theme folder.
 
 	```
-	# cp lightdm-webkit2-theme-glorious /usr/share/lightdm-webkit/themes/glorious -r
+	# cp lightdm-webkit2-theme-glorious /usr/share/lightdm-webkit/themes/ -r
 	```
 
 3. Set lightdm greeter session to webkit2.
 
 	```
 	$ sudoedit /etc/lightdm/lightdm.conf
-	# Find the `greeter-session` string under the `[Seat:*]` section, uncomment it, then set its value to `lightdm-webkit2-greeter`.
+	# Find `greeter-session`, uncomment it, then set its value to `lightdm-webkit2-greeter`.
 	```
 
 4. Set as lightdm webkit2 theme.
 
 	```
 	$ sudoedit /etc/lightdm/lightdm-webkit2-greeter.conf
-	# Find `webkit_theme` then set its value to `glorious`.
+	# Find `webkit_theme` then set its value to `lightdm-webkit2-theme-glorious`.
 	```
 
 ### features
 
+Right now, the features are pretty basic. There's no settings or customization. It's just a plain old login screen. But here's the basic things it can do.
+
 + Multi-user support
 + Swipe gestures
-+ Customization and Settings
-+ Remappable keybindings
-+ Change color schemes and background image on-the-fly
 + Simple keybinding
-+ Vanilla Javascript <sup>(not sure if this is a feature tho)</sup>
++ Yeah, that's all to it right now. 
 
 ### swipe gestures
 
@@ -96,36 +87,17 @@ $ yay -S lightdm-webkit2-theme-glorious
 + Swiping up on the login screen will open the power screen.
 + Swiping up on the greeter, user, power,and session screens will close them.
 
+
 ### keybinding
 
-The default modifier is <kbd>Alt</kbd> and you can change it in the settings.
-
-+ <kbd>Modifier + s</kbd> toggle session screen
-+ <kbd>Modifier + e</kbd> toggle power screen
-+ <kbd>Modifier + x</kbd> toggle settings screen
-+ <kbd>Modifier + y</kbd> toggle users screen
 + <kbd>Escape</kbd> to close the screens
-
-### Customization and Settings
-
-#### Changing the colors, blur strength, animation speed, and background image on-the-fly
-
-+ Open the dashboard by clicking the settings button on the dock.
-+ Change the color and blur strength by setting it on the `Theme Engine` section.
-+ Color settings supports `#RGB`, `#RRGGBB`, and `#RRGGBBAA`.
-+ Blur strength settings only allows integer with `px` suffix.
-+ Animation speed supports `s` and `ms`.
-+ Background image selection.
-+ Background image random selection.
 
 ### Notes
 
-+ You can add more background images by putting your wallpapers/images in `/usr/share/backgrounds/`.
 + If you're on a desktop environment like KDE Plasma and GNOME3, you can set your profile picture and real name in the settings. While if you're on a more minimal environment like window managers, you can install and use the program called `mugshot`.
-+ If your desktop environment or window manager's logo is not in the sessions screen, feel free to submit a pull request!
++ If your desktop environment or window manager logo is not in the sessions screen, feel free to submit a pull request!
+
 
 ### credits
 
-<span>Background image by <a href="https://unsplash.com/@johnonolan?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">John O'Nolan</a> on <a href="https://unsplash.com/s/photos/waves?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-
-<span>Old background image by <a href="https://unsplash.com/@wilstewart3?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Wil Stewart</a> on <a href="/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+<span>Background image by <a href="https://unsplash.com/@wilstewart3?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Wil Stewart</a> on <a href="/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

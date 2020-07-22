@@ -1,25 +1,7 @@
-/* Scrollbar */
-
-/* Width */
-::-webkit-scrollbar {
-	width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-	background: var(--base-container);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: var(--base-active-bg);
-}
-
 :root {
 	/* Colors */
-	--base-body-bg: #1a1a1aff;
-	--base-bg: #00000066;
-	--base-selected-bg: var(--base-bg);
+	--base-body-bg: #000000ff;
+	--base-bg: #00000060;
 	--base-color: #fefefeff;
 	--base-container: #f2f2f220;
 	--base-hover-bg: #f2f2f230;
@@ -32,7 +14,6 @@
 	--rounded-radius: 6px;
 	--base-error-bg: #ff3a3060;
 	--base-success-bg: #28cd4160;
-	--base-blue: #007bff;
 }
 
 /* Placeholder */
@@ -41,11 +22,6 @@
 	font-weight: 700;
 	color: var(--base-color);
 	opacity: 0.75;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: var(--base-hover-bg);
 }
 
 * {
@@ -108,13 +84,4 @@ select:focus {
 
 option {
 	text-align: left;
-}
-
-img {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }

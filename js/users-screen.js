@@ -5,9 +5,9 @@ class UsersScreen {
 		this._usersScreen = document.querySelector('#usersScreen');
 		this._usersList = document.querySelector('.usersList');
 		this._userNameLabel = document.querySelector('#userName');
-		this._profilePictureContainer = document.querySelector('#profilePictureContainer');
 		this._profilePicture = document.querySelector('#profilePicture');
 		this._passwordInputEl = document.querySelector('#passwordInput');
+		this._switchUsersButton = document.querySelector('#greeterScreenButton');
 
 		this._userScreenVisible = false;
 
@@ -19,6 +19,12 @@ class UsersScreen {
 		this._defaultUserItem = null;
 
 		this._init();
+        //Skips multiple users screen if there's only one user
+        if (this._usersObject.length != 1) {
+            this.toggleUsersScreen();
+        } else {
+            this._switchUsersButton.style.display = "none"
+        }
 	}
 
 	// Start creating Users list, register events
@@ -29,12 +35,11 @@ class UsersScreen {
 	}
 
 	profilePictureContainerOnClickEvent() {
-		this._profilePictureContainer.addEventListener(
+		this._switchUsersButton.addEventListener(
 			'click',
 			() => {
-				// Rotate profile pic
-				profilePictureRotate.rotateProfilePicture();
-
+                // Clear passwordInput field
+				this._passwordInputEl.value = '';
 				// Toggle user screen
 				this.toggleUsersScreen();
 			}
@@ -54,48 +59,25 @@ class UsersScreen {
 	}
 
 	// Show session screen
-	_showUsersScreen() {
-		// Power Screen
-		if (powerScreen.getPowerScreenVisibility()) {
-			powerScreen.togglePowerScreen();
-		}
-
-		// Sessions Screen
-		if (sessionsScreen.getSessionsScreenVisibility()) {
-			sessionsScreen.toggleSessionsScreen();
-		}
-
-		// Settings Screen
-		if (settingsScreen.getSettingsScreenVisibility()) {
-			settingsScreen.toggleSettingsScreen();
-		}
-
-		// Goodbye Screen
-		if (goodbyeScreen.getGoodbyeScreenVisibility()) {
-			goodbyeScreen.hideGoodbyeScreen();
-		}
-
-		// Greeter Screen
-		if (greeterScreen.getGreeterScreenVisibility()) {
-			greeterScreen.toggleGreeterScreen();
-		}
-
+	showUsersScreen() {
 		this._usersScreen.classList.add('usersScreenShow');
+        $("#usersScreen").fadeIn(220);
 		this._userScreenVisible = true;
 	}
 
 	// Hide users screen
-	_hideUsersScreen() {
+	hideUsersScreen() {
 		this._usersScreen.classList.remove('usersScreenShow');
+        $("#usersScreen").fadeOut(220);
 		this._userScreenVisible = false;
 	}
 
 	// Toggle users screen
 	toggleUsersScreen() {
 		if (this._userScreenVisible) {
-			this._hideUsersScreen();
+			this.hideUsersScreen();
 		} else {
-			this._showUsersScreen();
+			this.showUsersScreen();
 		}
 	}
 
@@ -144,10 +126,6 @@ class UsersScreen {
 		userProfile.item.addEventListener(
 			'click',
 			() => {
-				// Rotate profile pic if it's not currently running
-				if (profilePictureRotate.getProfileAnimationStatus()) return;
-				profilePictureRotate.rotateProfilePicture();
-
 				// Update user session defaults
 				this._updateUserProfileDefaults(userProfile);
 
@@ -165,7 +143,7 @@ class UsersScreen {
 				this._setUserNameLabel(userProfile.displayName);
 
 				// Hide user screen
-				this._hideUsersScreen();
+				this.hideUsersScreen();
 			}
 		);
 	}

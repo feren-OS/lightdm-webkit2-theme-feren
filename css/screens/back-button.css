@@ -1,0 +1,50 @@
+#topbackAScreenButton {
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	padding: 5px;
+	z-index: 20;
+	border-radius: var(--rounded-radius);
+	transition: opacity var(--transition-speed);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#topbackButton {
+	width: 48px;
+	height: 48px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#topbackButton:hover {
+	border-radius: var(--rounded-radius);
+	background-color: var(--base-hover-bg);
+}
+
+#topbackButton:focus {
+	border-radius: var(--rounded-radius);
+	background-color: var(--base-focus-bg);
+}
+
+#topbackButton:active {
+	border-radius: var(--rounded-radius);
+	background-color: var(--base-active-bg);
+}
+
+.topbackButtonImage {
+	width: 100%;
+	height: 100%;
+	background-image: url('../../assets/back.svg');
+	border-radius: var(--rounded-radius);
+	background-origin: content-box;
+	background-size: cover;
+	background-repeat: no-repeat;
+}

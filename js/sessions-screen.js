@@ -5,14 +5,15 @@ class SessionsScreen {
 		this._sessionsScreen = document.querySelector('#sessionsScreen');
 		this._sessionsList = document.querySelector('.sessionsList');
 		this._sessionsScreenButton = document.querySelector('#sessionsScreenButton');
-		this._sessionsScreenButtonImage = document.querySelector('#sessionsScreenButtonImage');
-		this._sessionsScreenLabel = document.querySelector('#sessionsScreenLabel');
+		this._sessionsButtonImage = document.querySelector('.sessionsButtonImage');
 
 		this._sessionScreenVisible = false;
 
 		this._defaultSession = null;
 		this._sessionsObject = null;
 		this._defaultSessionItem = null;
+        
+        $("#sessionsScreen").fadeOut(0);
 
 		this._init();
 	}
@@ -45,38 +46,15 @@ class SessionsScreen {
 
 	// Show session screen
 	showSessionsScreen() {
-		// Power Screen
-		if (powerScreen.getPowerScreenVisibility()) {
-			powerScreen.togglePowerScreen();
-		}
-
-		// Users Screen
-		if (usersScreen.getUsersScreenVisibility()) {
-			usersScreen.toggleUsersScreen();
-		}
-
-		// Settings Screen
-		if (settingsScreen.getSettingsScreenVisibility()) {
-			settingsScreen.toggleSettingsScreen();
-		}
-
-		// Goodbye Screen
-		if (goodbyeScreen.getGoodbyeScreenVisibility()) {
-			goodbyeScreen.hideGoodbyeScreen();
-		}
-
-		// Greeter Screen
-		if (greeterScreen.getGreeterScreenVisibility()) {
-			greeterScreen.toggleGreeterScreen();
-		}
-		
 		this._sessionsScreen.classList.add('sessionsScreenShow');
+        $("#sessionsScreen").fadeIn(220);
 		this._sessionScreenVisible = true;
 	}
 
 	// Hide session screen
 	hideSessionsScreen() {
 		this._sessionsScreen.classList.remove('sessionsScreenShow');
+        $("#sessionsScreen").fadeOut(220);
 		this._sessionScreenVisible = false;
 	}
 
@@ -114,17 +92,13 @@ class SessionsScreen {
 	}
 
 	// Update session button image
-	_updateSessionsScreenButtonElements(key) {
+	_setSessionButtonImage(key) {
 		// Update this session button image
-		this._sessionsScreenButtonImage.src = `assets/sessions/${key}.png`;
-		this._sessionsScreenButtonImage.onerror = () => {
-			this._sessionsScreenButtonImage.src = 'assets/sessions/session-default.png';
+		this._sessionsButtonImage.src = `assets/sessions/${key}.png`;
+		this._sessionsButtonImage.onerror = () => {
+			this._sessionsButtonImage.src = 'assets/sessions/session-default.png';
 		};
-
-		// Update label
-		this._sessionsScreenLabel.textContent = key;
 	}
-
 
 	// Set the default session in list on startup
 	_setSessionListDefaultOnStartUp() {
@@ -136,7 +110,7 @@ class SessionsScreen {
 		}
 
 		// Update session button image
-		this._updateSessionsScreenButtonElements(this._defaultSession);
+		this._setSessionButtonImage(this._defaultSession);
 
 		const defaultItemID = this._defaultSession + 'Session';
 		const defaultSessionItem = document.querySelector(`#${defaultItemID}`);
@@ -161,7 +135,7 @@ class SessionsScreen {
 				this._updateSessionItemDefault(item);
 
 				// Update session button image
-				this._updateSessionsScreenButtonElements(key);
+				this._setSessionButtonImage(key);
 			}
 		);
 	}
