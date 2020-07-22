@@ -63,7 +63,7 @@ class Authentication {
 	// You passed to authentication
 	_authenticationSuccess() {
         // RIP Antergos
-        $( 'body' ).fadeOut( 400, () => {
+        $( 'body' ).fadeOut( 580, () => {
             lightdm.start_session_sync(sessionsScreen.getDefaultSession());
         } );
 	}

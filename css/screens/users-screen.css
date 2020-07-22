@@ -41,8 +41,8 @@
 	border-radius: var(--rounded-radius);
 	outline: none;
 	margin: 5px;
-	width: 150px;
-	height: 150px;
+	width: 146px;
+	height: 200px;
 	padding: 10px;
 	margin-bottom: 10px;
 	cursor: pointer;
@@ -62,8 +62,8 @@
 }
 
 img#userItemIcon {
-	width: 64px;
-	height: 64px;
+	width: 130px;
+	height: 130px;
 	border-radius: 50%;
 	object-fit: cover;
 	display: block;
@@ -71,9 +71,8 @@ img#userItemIcon {
 
 #userItemName {
 	text-align: center;
-	font-size: 11pt;
-	font-family: Muli-Light, sans-serif;
-	font-weight: 400;
+	font-size: 16pt;
+	font-family: Lato, sans-serif;
 	word-wrap: break-word;
 	color: var(--base-color);
 }

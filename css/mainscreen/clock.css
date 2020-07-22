@@ -2,7 +2,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin: 10px;
+	margin: 32px;
 	padding: 5px;
 	z-index: 10;
 	border-radius: var(--rounded-radius);
@@ -16,7 +16,6 @@
     
     color: var(--base-color);
 	text-align: left;
-    font-size: 42pt;
-	font-family: Muli, sans-serif;
-	font-weight: 400;
+    font-size: 56pt;
+	font-family: Lato Light, sans-serif;
 }

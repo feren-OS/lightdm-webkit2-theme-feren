@@ -37,8 +37,8 @@
 
 /* Center profile container */
 #profilePictureContainer {
-	height: 148px;
-	width: 148px;
+	height: 130px;
+	width: 130px;
 	pointer-events: initial;
 	margin: auto 20px;
 	position: relative;
@@ -48,8 +48,8 @@
 
 /* Profile picture */
 #profilePicture {
-	height: 148px;
-	width: 148px;
+	height: 130px;
+	width: 130px;
 	border-radius: 50%;
 	object-fit: cover;
 	flex-flow: column wrap;
@@ -88,8 +88,8 @@
 
 label#userName {
 	color: var(--base-color);
-	font-size: 20px;
-	font-weight: 700;
+	font-size: 48px;
+	font-family: Lato Light, sans-serif;
 }
 
 #passwordInputContainer {
