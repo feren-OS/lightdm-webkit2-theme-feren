@@ -29,6 +29,7 @@
 
 .userbox:first-child {
     justify-content: flex-end;
+    text-align: right;
 }
 
 .userbox:last-child {
@@ -120,7 +121,7 @@ label#userName {
 .mainFormButton {
 	width: 36px;
 	height: 36px;
-	padding: 10px;
+	padding: 8px;
 	display: block;
 	cursor: normal;
 	border-radius: var(--rounded-radius);

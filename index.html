@@ -4,8 +4,9 @@
 <head>
 	<meta charset='utf-8' />
 	<link rel='stylesheet' href='css/style.css' class='style'>
-	<!-- Vendor JavaScript -->
-	<script src="../_vendor/js/jquery.min.js"></script>
+	<!-- JQuery JavaScript -->
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
     <script type="text/javascript">
         function hideLoading(){
             document.querySelector('#loadingScreen').style.display = "none";
@@ -49,8 +50,8 @@
 				 -->
 				<!-- <button class='userItem'>
 					<div id='userItemIconContainer'>
-						<img id='userItemIcon' src='assets/profiles/user.svg'
-						onerror='this.src="assets/profiles/user.svg"'></img>
+						<img id='userItemIcon' src='assets/profiles/user.png'
+						onerror='this.src="assets/profiles/user.png"'></img>
 					</div>
 					<div id='userItemName'>awesome</div>
 				</button> -->
@@ -85,7 +86,7 @@
 	
 	<div id='topbackAScreenButton'>
 		<div id='topbackButton'>
-			<img src='assets/back.svg' class='topbackButtonImage' draggable='false'></img>
+			<img src='assets/close.svg' class='topbackButtonImage' draggable='false'></img>
 		</div>
 	</div>
 	
@@ -95,7 +96,7 @@
 		<div id='mainFormContent'>
 			<label class="userbox" for='passwordInput' id='userName'></label>
 			<div class="userbox" id='profilePictureContainer'>
-				<img id='profilePicture' draggable='false' src='assets/profiles/user.svg' onerror='this.src="assets/profiles/user.svg"'></img>
+				<img id='profilePicture' draggable='false' src='assets/profiles/user.png' onerror='this.src="assets/profiles/user.png"'></img>
 			</div>
 			<div class="userbox" id='passwordInputContainer' class='tooltipParent'>
 				<button id='greeterScreenButton' class='mainFormButton'>
@@ -107,7 +108,7 @@
 				<button id='authenticateButton' class='mainFormButton'>
 					<div id='authenticateButtonImage' class='mainFormButtonImage'></div>
 				</button>
-				<span class='tooltipMessage tooltipBottom' id='passwordTooltip'></span>
+				</div>
 			</div>
 		</div>
 	</div>

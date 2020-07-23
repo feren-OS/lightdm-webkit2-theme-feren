@@ -14,3 +14,26 @@
 @import url('mainscreen/power-buttons.css');
 @import url('mainscreen/clock.css');
 @import url('mainscreen/watermark.css');
+
+
+
+/* SCROLLBARS */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #006aff;
+}

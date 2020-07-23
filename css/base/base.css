@@ -4,9 +4,9 @@
 	--base-bg: #00000060;
 	--base-color: #fefefeff;
 	--base-container: #ffffff20;
-	--base-hover-bg: #ffffff20;
-	--base-focus-bg: #ffffff20;
-	--base-active-bg: #ffffff40;
+	--base-hover-bg: rgba(255, 255, 255, 0.15);
+	--base-focus-bg: rgba(255, 255, 255, 0.15);
+	--base-active-bg: rgba(255, 255, 255, 0.30);
 	--blur-strength: 6px;
 	--panel-bg: var(--base-bg);
 	--panel-color: var(--base-color);

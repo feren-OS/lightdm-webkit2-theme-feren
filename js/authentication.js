@@ -3,7 +3,6 @@ class Authentication {
 		this._userNameEl = document.querySelector('#userName');
 		this._passwordInputEl = document.querySelector('#passwordInput');
 		this._passwordInputBox = document.querySelector('#passwordInputBox');
-		this._tooltipMessage = document.querySelector('#passwordTooltip');
 		this._authenticateButton = document.querySelector('#authenticateButton');
 
 		this._userName = '';
@@ -39,25 +38,8 @@ class Authentication {
 		// Clear passwordInput field
 		this._passwordInputEl.value = '';
 
-		// Error messages/UI
-		this._passwordInputBox.classList.add('authenticationFailed');
-		this._tooltipMessage.innerText = 'Authentication failed!';
-		this._tooltipMessage.classList.add('tooltipError');
-	}
-
-	// Remove authentication failure messages
-	_authenticationFailedRemove() {
-		// Remove warnings and tooltip
-		if (this._passwordInputBox.classList.contains('authenticationFailed') &&
-				this._tooltipMessage.classList.contains('tooltipError')) {
-			setTimeout(
-				() => {
-					this._tooltipMessage.classList.remove('tooltipError');
-					this._passwordInputBox.classList.remove('authenticationFailed');
-				},
-				1500
-			);
-		}
+		// Shake the password prompt for an incorrect password
+		$('#passwordInputContainer').effect("shake");
 	}
 
 	// You passed to authentication
@@ -102,9 +84,6 @@ class Authentication {
 	// Register keydown event
 	_passwordInputOnKeyDownEvent() {
 		this._passwordInputEl.onkeydown = (e) => {
-
-			// Remove wrong password's warnings and tooltip
-			this._authenticationFailedRemove();
 
 			// Save input value to variable
 			this._password = this._passwordInputEl.value;

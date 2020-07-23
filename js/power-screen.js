@@ -94,20 +94,6 @@ class PowerScreen {
 	_createPowerObject() {
 		this._powerObject = [
 			{
-				'name': 'Shutdown',
-				'icon': 'shutdown',
-				'enabled': lightdm.can_shutdown,
-				'powerCommand': lightdm.shutdown,
-				'message': 'Shutting down...'
-			},
-			{
-				'name': 'Reboot',
-				'icon': 'restart',
-				'enabled': lightdm.can_restart,
-				'powerCommand': lightdm.restart,
-				'message': 'Rebooting...'
-			},
-			{
 				'name': 'Hibernate',
 				'icon': 'hibernate',
 				'enabled': lightdm.can_hibernate,
@@ -120,6 +106,20 @@ class PowerScreen {
 				'enabled': lightdm.can_suspend,
 				'powerCommand': lightdm.suspend,
 				'message': 'Suspending...'
+			},
+			{
+				'name': 'Reboot',
+				'icon': 'restart',
+				'enabled': lightdm.can_restart,
+				'powerCommand': lightdm.restart,
+				'message': 'Rebooting...'
+			},
+			{
+				'name': 'Shutdown',
+				'icon': 'shutdown',
+				'enabled': lightdm.can_shutdown,
+				'powerCommand': lightdm.shutdown,
+				'message': 'Shutting down...'
 			}
 		];
 
@@ -147,6 +147,9 @@ class PowerScreen {
 				// Execute power command
 				this._executePowerCallback(powerObj.powerCommand);
                 });
+                sleep(5000).then(() => {
+                location.reload();
+                });
 			}
 		);
 	}
@@ -157,7 +160,7 @@ class PowerScreen {
 
 			// If disabled, don't create a button for it
 			const powerCommandEnabled = this._powerObject[parseInt(i, 10)].enabled;
-			if (!powerCommandEnabled) return;
+			if (powerCommandEnabled) {
 
 			// Get object element data
 			const powerName = this._powerObject[parseInt(i, 10)].name;
@@ -169,22 +172,34 @@ class PowerScreen {
 			let powerItem = document.createElement('button');
 			powerItem.className = 'powerItem';
 			powerItem.id = `${powerName.toLowerCase()}PowerButton`;
-			powerItem.insertAdjacentHTML(
+// 			powerItem.insertAdjacentHTML(
+// 				'beforeend',
+// 				`
+// 				<div id='powerItemIconContainer'>
+// 					<img id='powerItemIcon' draggable='false' src='assets/power/${powerIcon}.svg' 
+// 					onerror='this.src="assets/power/shutdown.svg"'></img>
+// 				</div>
+// 				<div id='powerItemName'>${powerName}</div>
+// 				`
+// 			);
+            powerItem.insertAdjacentHTML(
 				'beforeend',
 				`
 				<div id='powerItemIconContainer'>
 					<img id='powerItemIcon' draggable='false' src='assets/power/${powerIcon}.svg' 
 					onerror='this.src="assets/power/shutdown.svg"'></img>
 				</div>
-				<div id='powerItemName'>${powerName}</div>
 				`
 			);
 
 			// Create on click event
 			this._powerItemOnClickEvent(powerItem, this._powerObject[parseInt(i, 10)]);
 
-			// // Append to item
+			// Append to item
 			this._powerList.appendChild(powerItem);
+            }
 		}
+		// Set width of thing
+        $('.powerList').width(168 * this._powerList.childElementCount);
 	}
 }

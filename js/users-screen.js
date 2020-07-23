@@ -187,7 +187,7 @@ class UsersScreen {
 			this._defaultUserProfileImage = this._usersObject[0].image;
 		}
 		if (this._defaultUserProfileImageFallback === null) {
-			this._defaultUserProfileImageFallback = 'assets/profiles/user.svg';
+			this._defaultUserProfileImageFallback = 'assets/profiles/user.png';
 		}
 	}
 
@@ -220,7 +220,7 @@ class UsersScreen {
 				'userName': this._usersObject[parseInt(i, 10)].username,
 				'displayName': this._usersObject[parseInt(i, 10)].display_name,
 				'profileImage': this._usersObject[parseInt(i, 10)].image,
-				'profileImageFallBack': 'assets/profiles/user.svg'
+				'profileImageFallBack': 'assets/profiles/user.png'
 			};
 
 			// Alias
@@ -253,5 +253,7 @@ class UsersScreen {
 
 		// Update default user
 		this._setUsersListDefaultOnStartUp();
+        // Set width of thing
+        $('.usersList').width(184 * this._usersList.childElementCount);
 	}
 }

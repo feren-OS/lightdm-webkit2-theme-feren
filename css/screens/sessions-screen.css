@@ -52,6 +52,9 @@
 .sessionItem:hover {
 	background: var(--base-hover-bg);
 }
+.sessionItemDefault:hover {
+	background: var(--base-active-bg);
+}
 
 .sessionItem:focus {
 	background: var(--base-focus-bg);

@@ -1,6 +1,6 @@
 class Settings {
 	constructor() {
-		this._backgroundPath = '/usr/share/wallpapers/The Original/(The Original) wallpaper 79 origami by Zpecter.jpg';
+		this._backgroundPath = '';
         
         this._use24hrClock = true;
 	}

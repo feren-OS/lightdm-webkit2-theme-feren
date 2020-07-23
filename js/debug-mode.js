@@ -52,22 +52,22 @@ class DebugMode {
 					{
 						display_name: 'Vaughn Valle',
 						username: 'tellhimyourself',
-						image: 'assets/profiles/bon.jpg'
+						image: 'assets/profiles/user.png'
 					},
 					{
 						display_name: 'Gyro Zepelli',
 						username: 'pizzamozarella',
-						image: 'assets/profiles/gyroz.jpg'
+						image: 'assets/profiles/user.png'
 					},
 					{
 						display_name: 'Diego Brando',
 						username: 'diodiodio',
-						image: 'assets/profiles/diegob.jpg'
+						image: 'assets/profiles/user.png'
 					},
 					{
 						display_name: 'Funny Valentine',
 						username: 'reasonableprice',
-						image: 'assets/profiles/funnyv.jpg'
+						image: 'assets/profiles/user.png'
 					}
 				],
 				languages: [

@@ -17,10 +17,10 @@
 }
 
 .usersList {
-	width: auto;
-	height: auto;
+	height: 200px;
+    max-width: 100%;
 	max-height: 100%;
-	overflow: auto;
+	overflow: auto hidden;
 
 	/* Align vertically and horizontally */
 	margin: 0;
@@ -28,6 +28,7 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+    white-space: nowrap;
 }
 
 .userItem {
@@ -36,11 +37,11 @@
 	border-radius: var(--rounded-radius);
 	outline: none;
 	margin: 5px;
-	width: 146px;
+	width: 174px;
 	height: 200px;
 	padding: 10px;
 	margin-bottom: 10px;
-	 cursor: normal;
+	cursor: normal;
 }
 
 .userItemContent {
@@ -69,6 +70,9 @@ img#userItemIcon {
 	text-align: center;
 	font-size: 14pt;
 	font-family: Lato, sans-serif;
-	word-wrap: break-word;
 	color: var(--base-color);
+    max-width: 174px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

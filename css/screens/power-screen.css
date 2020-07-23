@@ -16,17 +16,16 @@
 }
 
 .powerList {
-	width: auto;
 	height: auto;
 	max-height: 100%;
 	overflow: auto;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 	/* Align vertically and horizontally */
-	margin: 0;
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
 .powerItem {
@@ -34,12 +33,11 @@
 	border: none;
 	border-radius: var(--rounded-radius);
 	outline: none;
-	margin: 5px;
-	width: 150px;
-	height: 150px;
-	padding: 10px;
-	margin-bottom: 10px;
-	 cursor: normal;
+	margin: 10px 34px;
+	width: 100px;
+	height: 100px;
+    border-radius: 50%;
+    cursor: normal;
 }
 
 .powerItemContent {
@@ -64,7 +62,6 @@
 }
 
 #powerItemIconContainer {
-	margin-bottom: 5px;
 	position: relative;
 	display: flex;
 	flex-flow: column wrap;
@@ -72,17 +69,17 @@
 }
 
 img#powerItemIcon {
-	width: 64px;
-	height: 64px;
+	width: 76px;
+	height: 76px;
 	object-fit: cover;
 	display: block;
 }
 
-#powerItemName {
+/*#powerItemName {
 	text-align: center;
 	font-size: 11pt;
 	font-family: Muli-Light, sans-serif;
 	font-weight: 400;
 	word-wrap: break-word;
 	color: var(--base-color);
-}
+}*/
