@@ -1,7 +1,5 @@
 @import url('base/normalize.css');
-@import url('base/font-face.css');
 @import url('base/base.css');
-@import url('base/tooltip.css');
 @import url('base/body-overlay.css');
 @import url('screens/screen.css');
 @import url('screens/sessions-screen.css');
