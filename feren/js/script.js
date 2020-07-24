@@ -12,11 +12,11 @@ const debugMode = new DebugMode();
 // Instantiate greeter screen contents
 const greeterScreenContent = new GreeterScreenContent();
 
-// Instantiate user screen
-const usersScreen = new UsersScreen();
-
 // Instantiate sessions screen
 const sessionsScreen = new SessionsScreen();
+
+// Instantiate user screen
+const usersScreen = new UsersScreen();
 
 // Instantiate power screen
 const powerScreen = new PowerScreen();
