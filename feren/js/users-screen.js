@@ -32,6 +32,8 @@ class UsersScreen {
             if (lightdm.sessions.length > 1) {
                 document.querySelector('#sessionsScreenButton').style.display = "block";
             }
+            // Give passwordInput focus
+            this._passwordInputEl.focus();
         }
 	}
 
