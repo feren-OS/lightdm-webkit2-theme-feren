@@ -24,6 +24,8 @@ class UsersScreen {
         if (this._usersObject.length > 1) {
             this.toggleUsersScreen();
         } else {
+            // Set default session
+            sessionsScreen._setSessionListDefault(this._usersObject[0].username);
             this._switchUsersButton.style.display = "none";
             document.querySelector('#mainFormContent').style.display = "flex";
             if (lightdm.sessions.length > 1) {
