@@ -15,14 +15,11 @@ class UsersScreen {
 
 		this._userScreenVisible = false;
 
-		this._defaultUser = null;
-		this._defaultUserDisplayName = null;
-		this._defaultUserProfileImage = null;
-		this._defaultUserProfileImageFallback = null;
 		this._usersObject = null;
 		this._defaultUserItem = null;
-
+        
 		this._init();
+        this._currentUser = this._defaultUser;
         //Skip multiple users screen if there's only one user
         if (this._usersObject.length > 1) {
             this.toggleUsersScreen();
@@ -123,30 +120,16 @@ class UsersScreen {
 		this._userNameLabel.innerText = name;
 	}
 
-	// Save user data defaults
-	_updateUserProfileDefaults(userProfile) {
-		this._defaultUser = userProfile.userName;
-		this._defaultUserDisplayName = userProfile.displayName;
-		this._defaultUserProfileImage = userProfile.profileImage;
-		this._defaultUserProfileImageFallback = userProfile.profileImageFallBack;
-
-		// Save default user on localstorage
-		this._localStorage.setItem('defaultUser', this._defaultUser);
-		this._localStorage.setItem('defaultUserDisplayName', this._defaultUserDisplayName);
-		this._localStorage.setItem('defaultUserProfileImage', this._defaultUserProfileImage);
-		this._localStorage.setItem('defaultUserProfileImageFallback', this._defaultUserProfileImageFallback);
-	}
-
 	// User item click event
 	_userItemOnClickEvent(userProfile) {
 		userProfile.item.addEventListener(
 			'click',
 			() => {
-				// Update user session defaults
-				this._updateUserProfileDefaults(userProfile);
-
 				// Clear passwordInput field
 				this._passwordInputEl.value = '';
+                
+                // For authentication
+                this._currentUser = userProfile.userName;
 
 				// Refresh authentication session
 				authentication.startAuthentication();
@@ -157,6 +140,9 @@ class UsersScreen {
 				// Update profile pic and label
 				this._setUserProfileImage(userProfile.profileImage, userProfile.profileImageFallBack);
 				this._setUserNameLabel(userProfile.displayName);
+                
+                // Set default session
+                sessionsScreen._setSessionListDefault(userProfile.userName);
                 
                 // Reveal main screen items
                 document.querySelector('#mainFormContent').style.display = "flex";
@@ -174,23 +160,10 @@ class UsersScreen {
 	}
 
 	_updateProfileVariablesOnStartUp() {
-		this._defaultUser = this._localStorage.getItem('defaultUser');
-		this._defaultUserDisplayName = this._localStorage.getItem('defaultUserDisplayName');
-		this._defaultUserProfileImage = this._localStorage.getItem('defaultUserProfileImage');
-		this._defaultUserProfileImageFallback = this._localStorage.getItem('defaultUserProfileImageFallback');
-
-		if (this._defaultUser === null) {
-			this._defaultUser = this._usersObject[0].username;
-		}
-		if (this._defaultUserDisplayName === null) {
-			this._defaultUserDisplayName = this._usersObject[0].display_name;
-		}
-		if (this._defaultUserProfileImage === null) {
-			this._defaultUserProfileImage = this._usersObject[0].image;
-		}
-		if (this._defaultUserProfileImageFallback === null) {
-			this._defaultUserProfileImageFallback = 'assets/profiles/user.png';
-		}
+		this._defaultUser = this._usersObject[0].username;
+		this._defaultUserDisplayName = this._usersObject[0].display_name;
+		this._defaultUserProfileImage = this._usersObject[0].image;
+		this._defaultUserProfileImageFallback = 'assets/profiles/user.png';
 	}
 
 	// Set the default session in list on startup

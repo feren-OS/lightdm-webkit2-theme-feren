@@ -3,4 +3,3 @@ name=Feren OS
 description=The Feren OS LightDM WebKit2 Greeter theme
 engine=lightdm-webkit2-greeter
 url=index.html
-session=plasma

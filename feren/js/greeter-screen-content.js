@@ -16,7 +16,7 @@ class GreeterScreenContent {
         // Get the current image
         var settingsBG = customSettings.getBG();
         if (Boolean(settingsBG) === false) {
-            settingsBG = "/usr/share/wallpapers/(20.04) Default.png";
+            settingsBG = "/usr/share/wallpapers/(The Original) Login.jpg";
         }
         // Create dummy image
         let dummyImg = document.createElement('img');

@@ -1,6 +1,10 @@
 // Instantiation
 
+// Custom settings
 const customSettings = new Settings();
+
+// Instantiate user screen
+const _util = new FerenThemeUtils();
 
 // Instantiate debug mode
 const debugMode = new DebugMode();

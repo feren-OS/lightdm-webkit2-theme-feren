@@ -111,14 +111,15 @@ class SessionsScreen {
 		};
 	}
 
-	// Set the default session in list on startup
-	_setSessionListDefaultOnStartUp() {
-
-		this._defaultSession = this._localStorage.getItem('defaultSession');
-
-		if (this._defaultSession === null) {
-			this._defaultSession = this._sessionsObject[0].key || lightdm.default_session;
-		}
+	// Set the default session for the selected user
+	_setSessionListDefault(user) {
+        this._defaultSession = _util.cache_get( 'user', user, 'session' )
+        
+        if ( null === this._defaultSession ) {
+            // This user has never logged in before let's enable the system's default
+            // session.
+            this._defaultSession = lightdm.default_session;
+        }
 
 		// Update session button image
 		this._setSessionButtonImage(this._defaultSession);
@@ -138,9 +139,6 @@ class SessionsScreen {
 
 				// Hide session screen
 				this.hideSessionsScreen();
-
-				// Save default session on localstorage
-				this._localStorage.setItem('defaultSession', this._defaultSession);
 
 				// Update the selected session item
 				this._updateSessionItemDefault(item);
@@ -178,8 +176,5 @@ class SessionsScreen {
 			// Append to item
 			this._sessionsList.appendChild(sessionItem);
 		}
-
-		// Update default session
-		this._setSessionListDefaultOnStartUp();
 	}
 }

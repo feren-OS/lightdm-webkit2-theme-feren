@@ -26,7 +26,7 @@ class Authentication {
 		lightdm.cancel_authentication();
 
 		// Get selected user to authenticate
-		this._userName = usersScreen.getDefaultUserName();
+		this._userName = usersScreen._currentUser;
 		lightdm.authenticate(this._userName);
 	}
 
@@ -44,6 +44,7 @@ class Authentication {
 
 	// You passed to authentication
 	_authenticationSuccess() {
+        _util.cache_set( sessionsScreen._defaultSession, 'user', this._userName, 'session' );
         // RIP Antergos
         $( 'body' ).fadeOut( 400, () => {
             lightdm.start_session_sync(sessionsScreen.getDefaultSession());

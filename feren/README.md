@@ -101,5 +101,3 @@ Right now, the features are pretty basic. There's no settings or customization. 
 ### credits
 
 <span>Background image by <a href="https://unsplash.com/@wilstewart3?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Wil Stewart</a> on <a href="/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-
-<span>Some of the code was by Antergos (rest in peace).</span>

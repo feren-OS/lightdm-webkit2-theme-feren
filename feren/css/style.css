@@ -35,3 +35,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #006aff;
 }
+
+
+/* HiDPI */
+@media screen and (min-width: 3000px) and (min-height: 1200px) {
+    html {
+        zoom: 2.0;
+    }
+}
+
+/* HiDPI 2x */
+@media screen and (min-width: 6000px) and (min-height: 2400px) {
+    html {
+        zoom: 4.0;
+    }
+}
