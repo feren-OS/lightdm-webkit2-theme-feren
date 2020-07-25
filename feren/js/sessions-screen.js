@@ -54,6 +54,7 @@ class SessionsScreen {
         sleep(5).then(() => {
 		this._sessionsScreen.classList.add('sessionsScreenShow');
 		this._sessionScreenVisible = true;
+        document.querySelector(`#${this._defaultSession}Session`).focus();
         });
 	}
 
@@ -115,8 +116,8 @@ class SessionsScreen {
 	_setSessionListDefault(user) {
         this._defaultSession = _util.cache_get( 'user', user, 'session' )
         
-        if ( null === this._defaultSession ) {
-            // This user has never logged in before let's enable the system's default
+        if ( null === this._defaultSession || !($(`#${this._defaultSession}Session`)[0]) ) {
+            // This user has never logged in before, or their selected DE is no longer available, so let's enable the system's default
             // session.
             if ( $("#plasmaSession")[0] ) {
                 this._defaultSession = "plasma";
@@ -124,6 +125,8 @@ class SessionsScreen {
                 this._defaultSession = "cinnamon";
             } else {
                 this._defaultSession = lightdm.sessions[0].key;
+                // Show screen to make them select a DE
+                this.showSessionsScreen();
             }
         }
 
