@@ -118,7 +118,13 @@ class SessionsScreen {
         if ( null === this._defaultSession ) {
             // This user has never logged in before let's enable the system's default
             // session.
-            this._defaultSession = lightdm.default_session || lightdm.sessions[0].key;
+            if ( $("#plasmaSession")[0] ) {
+                this._defaultSession = "plasma";
+            } else if ( $("#cinnamonSession")[0] ) {
+                this._defaultSession = "cinnamon";
+            } else {
+                this._defaultSession = lightdm.sessions[0].key;
+            }
         }
 
 		// Update session button image
@@ -126,8 +132,9 @@ class SessionsScreen {
 
 		const defaultItemID = this._defaultSession + 'Session';
 		const defaultSessionItem = document.querySelector(`#${defaultItemID}`);
+
 		this._updateSessionItemDefault(defaultSessionItem);
-	}
+    }
 
 	// Session item click event
 	_sessionItemOnClickEvent(item, key) {
