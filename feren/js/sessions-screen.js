@@ -126,7 +126,9 @@ class SessionsScreen {
             } else {
                 this._defaultSession = lightdm.sessions[0].key;
                 // Show screen to make them select a DE
-                this.showSessionsScreen();
+                if (lightdm.sessions.length > 1) {
+                    this.showSessionsScreen();
+                }
             }
         }
 
