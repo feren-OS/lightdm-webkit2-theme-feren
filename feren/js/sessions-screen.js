@@ -118,7 +118,7 @@ class SessionsScreen {
         if ( null === this._defaultSession ) {
             // This user has never logged in before let's enable the system's default
             // session.
-            this._defaultSession = lightdm.default_session;
+            this._defaultSession = lightdm.default_session || lightdm.sessions[0].key;
         }
 
 		// Update session button image
