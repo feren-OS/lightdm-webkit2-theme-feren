@@ -17,7 +17,8 @@ class Authentication {
 		this._authenticationComplete();
 		this._passwordInputOnKeyDownEvent();
 		this._authenticateButtonOnClickEvent();
-		this.startAuthentication();
+        lightdm.cancel_authentication();
+		//this.startAuthentication();
 	}
 
 	// Start authenticating
