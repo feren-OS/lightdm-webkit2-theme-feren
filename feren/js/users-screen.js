@@ -19,11 +19,14 @@ class UsersScreen {
 		this._defaultUserItem = null;
         
 		this._init();
-        this._currentUser = this._defaultUser;
         //Skip multiple users screen if there's only one user
         if (this._usersObject.length > 1) {
             this.toggleUsersScreen();
         } else {
+            // Update variables
+            this._updateProfileVariablesOnStartUp();
+            this._currentUser = this._defaultUser;
+            authentication.startAuthentication(this._currentUser);
             // Update profile pic and label
             this._setUserProfileImage(this._defaultUserProfileImage, this._defaultUserProfileImageFallback);
             this._setUserNameLabel(this._defaultUserDisplayName);
@@ -126,7 +129,7 @@ class UsersScreen {
                 this._currentUser = userProfile.userName;
 
 				// Refresh authentication session
-				authentication.startAuthentication();
+				authentication.startAuthentication(this._currentUser);
 
 				// Update profile pic and label
 				this._setUserProfileImage(userProfile.profileImage, userProfile.profileImageFallBack);
@@ -157,75 +160,60 @@ class UsersScreen {
 		this._defaultUserProfileImageFallback = 'assets/profiles/user.png';
 	}
 
-	// Set the default session in list on startup
-	_setUsersListDefaultOnStartUp() {
-		// Update variable values
-		this._updateProfileVariablesOnStartUp();
-	}
-
 	_updateUsersObject() {
 		this._usersObject = lightdm.users;
-		this._createUsersList();
-	}
-
-	_createUsersList() {
-        var userstohide = [];
-        
-		// Generate user list
-		for (let i = 0; i < this._usersObject.length; i++){
-            // Blacklist troublesome usernames
-            // Libvirt Qemu isn't meant to be a visible user, for instance.
+        // Blacklist troublesome usernames to prevent code issues
+        // Libvirt Qemu isn't meant to be a visible user, for instance.
+        for (let i = 0; i < this._usersObject.length; i++){
             if (this._usersObject[parseInt(i, 10)].username === "libvirt-qemu") {
-                
-                userstohide.push(parseInt(i, 10));
-            } else {
-                
-                // Create obj
-                let userProfile = {
-                    'item': document.createElement('button'),
-                    'userName': this._usersObject[parseInt(i, 10)].username,
-                    'displayName': this._usersObject[parseInt(i, 10)].display_name,
-                    'profileImage': this._usersObject[parseInt(i, 10)].image,
-                    'profileImageFallBack': 'assets/profiles/user.png'
-                };
-
-                // Alias
-                let userItem = userProfile.item;
-                let userName = userProfile.userName;
-                let userDisplayName = userProfile.displayName;
-                let userProfileImage = userProfile.profileImage;
-                let userProfileImageFallBack = userProfile.profileImageFallBack;
-
-                userItem.className = 'userItem';
-                userItem.id = `${userName}User`;
-
-                userItem.insertAdjacentHTML(
-                    'beforeend',
-                    `
-                    <div id='userItemIconContainer'>
-                        <img id='userItemIcon' draggable='false' src='${userProfileImage}' 
-                        onerror='this.src="${userProfileImageFallBack}"'></img>
-                    </div>
-                    <div id='userItemName'>${userDisplayName}</div>
-                    `
-                );
-                
-                // Create on click event
-                this._userItemOnClickEvent(userProfile);
-
-                // Append to item
-                this._usersList.appendChild(userItem);
+                //Splice removes the entry and pushes everything to close the hole made
+                this._usersObject.splice(i, 1);
             }
         }
         
-        //Remove troublesome usernames from list to prevent code issues
-        for (let i = 0; i < userstohide.length; i++){
-            this._usersObject.splice(i, 1);
-        }
-            
+		this._createUsersList();
+	}
 
-		// Update default user
-		this._setUsersListDefaultOnStartUp();
+	_createUsersList() {        
+		// Generate user list
+		for (let i = 0; i < this._usersObject.length; i++){
+            // Create obj
+            let userProfile = {
+                'item': document.createElement('button'),
+                'userName': this._usersObject[parseInt(i, 10)].username,
+                'displayName': this._usersObject[parseInt(i, 10)].display_name,
+                'profileImage': this._usersObject[parseInt(i, 10)].image,
+                'profileImageFallBack': 'assets/profiles/user.png'
+            };
+
+            // Alias
+            let userItem = userProfile.item;
+            let userName = userProfile.userName;
+            let userDisplayName = userProfile.displayName;
+            let userProfileImage = userProfile.profileImage;
+            let userProfileImageFallBack = userProfile.profileImageFallBack;
+
+            userItem.className = 'userItem';
+            userItem.id = `${userName}User`;
+
+            userItem.insertAdjacentHTML(
+                'beforeend',
+                `
+                <div id='userItemIconContainer'>
+                    <img id='userItemIcon' draggable='false' src='${userProfileImage}' 
+                    onerror='this.src="${userProfileImageFallBack}"'></img>
+                </div>
+                <div id='userItemName'>${userDisplayName}</div>
+                `
+            );
+            
+            // Create on click event
+            this._userItemOnClickEvent(userProfile);
+
+            // Append to item
+            this._usersList.appendChild(userItem);
+        }
+        
         // Set width of thing
         $('.usersList').width(184 * this._usersList.childElementCount);
 	}

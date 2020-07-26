@@ -15,14 +15,14 @@ const greeterScreenContent = new GreeterScreenContent();
 // Instantiate sessions screen
 const sessionsScreen = new SessionsScreen();
 
-// Instantiate user screen
-const usersScreen = new UsersScreen();
-
-// Instantiate power screen
-const powerScreen = new PowerScreen();
-
 // Instantiate key events
 const keyEvents = new KeyEvents();
 
 // Instantiate authentication
 const authentication = new Authentication();
+
+// Instantiate user screen
+const usersScreen = new UsersScreen();
+
+// Instantiate power screen
+const powerScreen = new PowerScreen();

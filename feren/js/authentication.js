@@ -17,18 +17,16 @@ class Authentication {
 		this._authenticationComplete();
 		this._passwordInputOnKeyDownEvent();
 		this._authenticateButtonOnClickEvent();
-        lightdm.cancel_authentication();
-		//this.startAuthentication();
+        //this.startAuthentication();
 	}
 
 	// Start authenticating
-	startAuthentication() {
+	startAuthentication(username) {
 		// Cancel authentication process of there's any
 		lightdm.cancel_authentication();
 
 		// Get selected user to authenticate
-		this._userName = usersScreen._currentUser;
-		lightdm.authenticate(this._userName);
+		lightdm.authenticate(username);
 	}
 
 	// You failed to authenticate
